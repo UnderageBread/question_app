@@ -6,7 +6,7 @@ from datetime import datetime
 
 os.chdir(os.path.split(__file__)[0])
 
-DEFAULT = False
+DEFAULT = True
 st.set_page_config(page_title="学习提升潜力评测", layout="wide")
 
 st.markdown("""
