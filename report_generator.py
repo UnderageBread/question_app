@@ -120,10 +120,12 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
                         edgecolor=color, alpha=0.8))
         
         if 0 <= value < 8:
-            ax1.plot(x, y + 1.8, marker='o', markersize=12, color='#E74C3C', 
-                    markeredgecolor='red', markeredgewidth=2)
+            # ax1.plot(x, y + 1.8, marker='o', markersize=12, color='#E74C3C', 
+            #         markeredgecolor='red', markeredgewidth=2)
+            # ax1.text(x, y + 1.8, '！', ha='center', va='center',
+            #         fontsize=20, fontweight='bold', color='white')
             ax1.text(x, y + 1.8, '！', ha='center', va='center',
-                    fontsize=20, fontweight='bold', color='white')
+                    fontsize=24, fontweight='bold', color='red')
         elif value >= 11:
             ax1.plot(x, y + 1.8, marker='*', markersize=20, color='#F39C12',
                     markeredgecolor='#F39C12', markeredgewidth=1)
@@ -157,10 +159,10 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
         
         if 0 <= value < 8:
             x_pos = bar.get_x() + bar.get_width()/2.
-            ax2.plot(x_pos, height + 1.2, marker='o', markersize=12, color='#E74C3C',
-                    markeredgecolor='red', markeredgewidth=2, zorder=10)
+            # ax2.plot(x_pos, height + 1.2, marker='o', markersize=12, color='#E74C3C',
+            #         markeredgecolor='red', markeredgewidth=2, zorder=10)
             ax2.text(x_pos, height + 1.2, '！', ha='center', va='center',
-                    fontsize=20, fontweight='bold', color='white', zorder=11)
+                    fontsize=24, fontweight='bold', color='red', zorder=11)
         elif value >= 11:
             x_pos = bar.get_x() + bar.get_width()/2.
             ax2.plot(x_pos, height + 1.2, marker='*', markersize=20, color='#F39C12',
@@ -230,7 +232,7 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
     fig.text(0.3,- 0.03+0.1, contact_text, ha='left', fontsize=18,
             color='#7F8C8D')
 
-    plt.savefig(f'learning_assessment_report_{name}.jpg', dpi=300, bbox_inches='tight', 
+    plt.savefig(f'learning_assessment_report_{name}.jpg', dpi=800, bbox_inches='tight', 
                 facecolor='#F8F9FA')
     print(f"✓ 报告已生成：learning_assessment_report.jpg")
     plt.close()
