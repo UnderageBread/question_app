@@ -11,7 +11,8 @@ warnings.filterwarnings('ignore')
 # plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'DejaVu Sans']
 # plt.rcParams['axes.unicode_minus'] = False
 # 加载本地字体文件
-font_path = 'SIMHEI.TTF'
+font_path = 'simhei.ttf'
+st.success(os.listdir("./"))
 if os.path.exists(font_path):
     font_manager.fontManager.addfont(font_path)
     plt.rcParams['font.sans-serif'] = ['SimHei']
