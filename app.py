@@ -277,11 +277,11 @@ if not st.session_state.submitted:
         with col1:
             q16_a = st.checkbox("A. 出生顺利、婴儿评分高", key="m1_q16_a", value=True if DEFAULT else False)
         with col2:
-            q16_b = st.checkbox("B. 胎位有点情况", key="m1_q16_b", value=True if DEFAULT else False)
+            q16_b = st.checkbox("B. 胎位有点情况（如系带绕颈、短暂缺氧），医生建议剖腹产", key="m1_q16_b", value=True if DEFAULT else False)
         with col3:
             q16_c = st.checkbox("C. 6岁前经历过全麻手术", key="m1_q16_c", value=False)
         with col4:
-            q16_d = st.checkbox("D. 孩子出生时出现严重情况", key="m1_q16_d", value=False)
+            q16_d = st.checkbox("D. 孩子出生时出现严重情况（如窒息、缺氧缺血性脑病）", key="m1_q16_d", value=False)
         
         q16_selected = []
         if q16_a:
@@ -635,7 +635,7 @@ else:
 """
                 
                 sender.send_email(
-                    "1983128249@qq.com",
+                    "ylrunning@163.com",
                     subject,
                     content,
                     [report_path]
