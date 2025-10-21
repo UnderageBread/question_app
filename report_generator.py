@@ -8,7 +8,16 @@ from matplotlib import image as mpimg
 from datetime import datetime
 warnings.filterwarnings('ignore')
 
-plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'DejaVu Sans']
+# plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'DejaVu Sans']
+# plt.rcParams['axes.unicode_minus'] = False
+# 加载本地字体文件
+font_path = os.path.join(os.path.dirname(__file__), 'SIMHEI.TTF')
+if os.path.exists(font_path):
+    font_manager.fontManager.addfont(font_path)
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+else:
+    plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'DejaVu Sans']
+
 plt.rcParams['axes.unicode_minus'] = False
 
 def calculate_scores(responses):
