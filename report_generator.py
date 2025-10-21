@@ -114,7 +114,7 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
         y = value
         color = '#2C3E50'
         
-        ax1.text(x, y + 0.8, f'{value}', ha='center', va='center',
+        ax1.text(x, y + 1, f'{value}', ha='center', va='center',
                 fontsize=10, fontweight='bold', color=color,
                 bbox=dict(boxstyle='round,pad=0.3', facecolor='white', 
                         edgecolor=color, alpha=0.8))
@@ -124,20 +124,19 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
                     markeredgecolor='red', markeredgewidth=2)
             ax1.text(x, y + 1.8, '!', ha='center', va='center',
                     fontsize=20, fontweight='bold', color='white')
-            # ax1.text(x, y + 1.8, '!', ha='center', va='center',
-            #         fontsize=24, fontweight='bold', color='red')
         elif value >= 11:
-            ax1.plot(x, y + 1.8, marker='*', markersize=20, color='#F39C12',
+            ax1.plot(x, 12, marker='*', markersize=20, color='#F39C12',
                     markeredgecolor='#F39C12', markeredgewidth=1)
 
     ax1.set_xticks(angles)
     ax1.set_xticklabels(dimensions, fontsize=11, fontweight='bold')
+    ax1.tick_params(axis='x', pad=30)  # 增加标签与轴的距离
     ax1.set_ylim(0, 13)
     ax1.set_yticks([3, 6, 9, 12])
     ax1.set_yticklabels(['3', '6', '9', '12'], fontsize=9)
     ax1.set_rlabel_position(22.5)
     ax1.set_title('基础学习能力现状分析', fontsize=18, fontweight='bold', 
-                pad=25, color='#2C3E50')
+                pad=30, color='#2C3E50')
     ax1.grid(True, linewidth=0.5, alpha=0.6)
     ax1.spines['polar'].set_linewidth(2)
     
