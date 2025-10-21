@@ -89,7 +89,7 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
+st.success(os.listdir('./))
 if 'submitted' not in st.session_state:
     st.session_state.submitted = False
 
