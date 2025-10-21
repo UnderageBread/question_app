@@ -27,7 +27,7 @@ except Exception as e:
 
 plt.rcParams['axes.unicode_minus'] = False
 
-DEFAULT = False
+DEFAULT = True
 st.set_page_config(page_title="学习提升潜力评测", layout="wide")
 
 st.markdown("""
