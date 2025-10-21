@@ -8,8 +8,8 @@ from matplotlib import image as mpimg
 from datetime import datetime
 warnings.filterwarnings('ignore')
 
-plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'DejaVu Sans']
-plt.rcParams['axes.unicode_minus'] = False
+# plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'DejaVu Sans']
+# plt.rcParams['axes.unicode_minus'] = False
 
 def calculate_scores(responses):
     scores = {
