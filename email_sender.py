@@ -11,7 +11,7 @@ class EmailSender:
     def __init__(self, sender_email, password):
         self.sender_email = sender_email
         self.password = password
-        self.smtp_server = "smtp.163.com"
+        self.smtp_server = "smtp.qq.com"
         self.smtp_port = 465
     
     def send_email(self, receiver_email, subject, content, attachments=None):
