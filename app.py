@@ -22,7 +22,7 @@ try:
     mpl_font_manager.fontManager.addfont('SIMHEI.TTF')
     plt.rcParams['font.sans-serif'] = ['SimHei']
 except Exception as e:
-    st.warning(e)
+    # st.warning(e)
     plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
 
 plt.rcParams['axes.unicode_minus'] = False
@@ -110,7 +110,7 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-st.success(os.listdir('./'))
+# st.success(os.listdir('./'))
 if 'submitted' not in st.session_state:
     st.session_state.submitted = False
 
