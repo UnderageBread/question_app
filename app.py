@@ -5,6 +5,26 @@ import os
 from datetime import datetime
 
 os.chdir(os.path.split(__file__)[0])
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+from matplotlib.gridspec import GridSpec
+import numpy as np
+from matplotlib import font_manager as mpl_font_manager
+import warnings
+from matplotlib import image as mpimg
+from datetime import datetime
+import os
+
+warnings.filterwarnings('ignore')
+
+# 临时注册新的全局字体
+try:
+    mpl_font_manager.fontManager.addfont('simhei.ttf')
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+except:
+    plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
+
+plt.rcParams['axes.unicode_minus'] = False
 
 DEFAULT = True
 st.set_page_config(page_title="学习提升潜力评测", layout="wide")
