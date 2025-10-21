@@ -635,7 +635,7 @@ else:
 """
                 
                 sender.send_email(
-                    "ylrunning@163.com",
+                    "961850292@qq.com",
                     subject,
                     content,
                     [report_path]
