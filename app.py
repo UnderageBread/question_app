@@ -611,7 +611,7 @@ else:
                 
                 report_path = f'learning_assessment_report_{st.session_state.child_name}.jpg'
                 
-                sender = EmailSender("1983128249@qq.com", "mjvmjhiyuiydbaga")
+                sender = EmailSender("ylrunning@163.com", "YGg7kCuRJBYmCVZT")
                 
                 current_time = datetime.now().strftime("%Y年%m月%d日")
                 
