@@ -19,9 +19,10 @@ warnings.filterwarnings('ignore')
 
 # 临时注册新的全局字体
 try:
-    mpl_font_manager.fontManager.addfont('simhei.ttf')
+    mpl_font_manager.fontManager.addfont('SIMHEI.TTF')
     plt.rcParams['font.sans-serif'] = ['SimHei']
-except:
+except Exception as e:
+    st.warning(e)
     plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
 
 plt.rcParams['axes.unicode_minus'] = False
