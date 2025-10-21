@@ -70,6 +70,23 @@ st.markdown("""
         margin-bottom: 1rem;
         box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
+            /* 新增：让radio按钮组占满宽度 */
+    div[data-testid="stVerticalBlock"] > div:has(> div.stRadio) {
+        background-color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        width: 100% !important;
+    }
+    
+    .stRadio {
+        width: 100% !important;
+    }
+    
+    .stRadio > div {
+        width: 100% !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
