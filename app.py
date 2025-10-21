@@ -2,7 +2,7 @@ import streamlit as st
 from email_sender import EmailSender
 from report_generator import calculate_scores, create_dashboard
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 os.chdir(os.path.split(__file__)[0])
 import matplotlib.pyplot as plt
@@ -623,7 +623,11 @@ else:
         with st.spinner("正在生成报告并发送邮件..."):
             try:
                 scores = calculate_scores(st.session_state.responses)
-                
+
+
+                # UTC+8 中国时间
+                china_time = datetime.utcnow() + timedelta(hours=8)
+                report_date = china_time.strftime('%Y年%m月%d日')
                 report_date = datetime.now().strftime('%Y年%m月%d日')
                 create_dashboard(scores, 
                                child_name=st.session_state.child_name, 
@@ -634,7 +638,7 @@ else:
                 
                 sender = EmailSender("ylrunning@163.com", "YGg7kCuRJBYmCVZT")
                 
-                current_time = datetime.now().strftime("%Y年%m月%d日")
+                current_time = report_date
                 
                 subject = f"{st.session_state.child_name}的学习能力测评报告"
                 content = f"""尊敬的家长：
