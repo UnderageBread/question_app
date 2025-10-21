@@ -611,9 +611,9 @@ else:
                 
                 report_path = f'learning_assessment_report_{st.session_state.child_name}.jpg'
                 
-                sender = EmailSender("ylrunning@163.com", "YGg7kCuRJBYmCVZT")
+                sender = EmailSender("1983128249@qq.com", "mjvmjhiyuiydbaga")
                 
-                current_time = datetime.now().strftime("%Y年%m月%d日 %H:%M")
+                current_time = datetime.now().strftime("%Y年%m月%d日")
                 
                 subject = f"{st.session_state.child_name}的学习能力测评报告"
                 content = f"""尊敬的家长：
