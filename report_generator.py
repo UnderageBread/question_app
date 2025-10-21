@@ -148,34 +148,36 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
     bars = ax2.bar(m2_dims_order, m2_values_ordered, color=colors_bar,
                    edgecolor='#2C3E50', linewidth=2.5, width=0.5, alpha=0.85)
     
-    for bar, value in zip(bars, m2_values_ordered):
-        height = bar.get_height()
+    for angle, value, dim in zip(angles, values, dimensions):
+        x = angle
+        y = value
         color = '#2C3E50'
         
-        ax2.text(bar.get_x() + bar.get_width()/2., height + 0.3,
-                f'{int(value)}',
-                ha='center', va='bottom', fontsize=13, fontweight='bold', color=color)
+        ax1.text(x, y-0.5, f'{value}', ha='center', va='center',
+                fontsize=10, fontweight='bold', color=color,
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='white', 
+                        edgecolor=color, alpha=0.8))
         
         if 0 <= value < 8:
-            x_pos = bar.get_x() + bar.get_width()/2.
-            ax2.plot(x_pos, height + 1.2, marker='o', markersize=12, color='#E74C3C',
-                    markeredgecolor='red', markeredgewidth=2, zorder=10)
-            ax2.text(x_pos, height + 1.2, '!', ha='center', va='center',
-                    fontsize=20, fontweight='bold', color='white', zorder=11)
+            ax1.plot(x, y + 1.8, marker='o', markersize=12, color='#E74C3C', 
+                    markeredgecolor='red', markeredgewidth=2)
+            ax1.text(x, y + 1.8, '!', ha='center', va='center',
+                    fontsize=20, fontweight='bold', color='white')
         elif value >= 11:
-            x_pos = bar.get_x() + bar.get_width()/2.
-            ax2.plot(x_pos, height + 1.2, marker='*', markersize=20, color='#F39C12',
-                    markeredgecolor='#F39C12', markeredgewidth=1, zorder=10)
-    
-    ax2.axhline(y=10, color='#95A5A6', linestyle='--', linewidth=2, alpha=0.5)
-    ax2.set_ylim(0, 14)
-    ax2.set_ylabel('得分', fontsize=13, fontweight='bold', color='#2C3E50')
-    ax2.set_title('学习能量通道分析', fontsize=18, 
-                  fontweight='bold', pad=20, color='#2C3E50')
-    ax2.set_facecolor('#FAFAFA')
-    ax2.spines['top'].set_visible(False)
-    ax2.spines['right'].set_visible(False)
-    ax2.tick_params(labelsize=11)
+            ax1.plot(x, 13, marker='*', markersize=20, color='#F39C12',
+                    markeredgecolor='#F39C12', markeredgewidth=1)
+
+    ax1.set_xticks(angles)
+    ax1.set_xticklabels(dimensions, fontsize=11, fontweight='bold')
+    ax1.tick_params(axis='x', pad=30)  # 增加标签与轴的距离
+    ax1.set_ylim(0, 14)
+    ax1.set_yticks([3, 6, 9, 12])
+    ax1.set_yticklabels(['3', '6', '9', '12'], fontsize=9)
+    ax1.set_rlabel_position(22.5)
+    ax1.set_title('基础学习能力现状分析', fontsize=18, fontweight='bold', 
+                pad=30, color='#2C3E50')
+    ax1.grid(True, linewidth=0.5, alpha=0.6)
+    ax1.spines['polar'].set_linewidth(2)
     
     ax5 = fig.add_subplot(gs[4:6, :])
     m3_channels = list(scores['module3'].keys())
