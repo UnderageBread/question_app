@@ -36,7 +36,6 @@ def calculate_scores(responses):
             if q_num == 16:
                 if isinstance(answer, list):
                     score_16 = 0
-                    print('feafeawfaw awefawefe',score_16)
                     if 'A' in answer:
                         score_16 += 4
                     if 'B' in answer:
@@ -45,7 +44,6 @@ def calculate_scores(responses):
                         score_16 -= 1
                     if 'D' in answer:
                         score_16 -= 1
-                    print('feafeawfaw',score_16)
                     dim_score += max(-100, score_16)
                 else:
                     dim_score += score_map.get(answer, 0)
@@ -64,14 +62,31 @@ def calculate_scores(responses):
         dim_score = sum(score_map.get(responses['module2'].get(q, ''), 0) for q in q_nums)
         scores['module2'][dim] = dim_score
     
-    m3_answers = [responses['module3'].get(i) for i in range(1, 13)]
+    visual_count = 0
+    auditory_count = 0
+    kinesthetic_count = 0
+    
+    for i in range(1, 13):
+        answer = responses['module3'].get(i, [])
+        if isinstance(answer, list):
+            if 'D' in answer:
+                continue
+            else:
+                if 'A' in answer:
+                    visual_count += 1
+                if 'B' in answer:
+                    auditory_count += 1
+                if 'C' in answer:
+                    kinesthetic_count += 1
+    
     scores['module3'] = {
-        '视觉': m3_answers.count('A'),
-        '听觉': m3_answers.count('B'),
-        '感觉': m3_answers.count('C')
+        '视觉': visual_count,
+        '听觉': auditory_count,
+        '感觉': kinesthetic_count
     }
     
     return scores
+
 
 def create_dashboard(scores, child_name="测试学生", report_date=None,name=''):
     if report_date is None:
@@ -216,7 +231,7 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
     fig.text(0.1, 0.065+0.1, '评测寄语:', 
             ha='left', fontsize=24, color='#2980B9', weight='bold')
 
-    fig.text(0.1, 0.04+0.1, '每一朵花都可以绽放，请不要错过每一个天才孩子！', 
+    fig.text(0.1, 0.04+0.1, '每一朵花都可以绽放，不要错过你的天才孩子！', 
             ha='left', fontsize=24, color='#2980B9', weight='bold')
 
     message_text = """感谢参加本次测评，报告解读请咨询雷氏三觉学堂顾问。测评分数仅代
