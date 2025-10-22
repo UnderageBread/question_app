@@ -655,7 +655,7 @@ else:
     if os.path.exists("after_submit2.jpg"):
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
-            st.image("after_submit2.jpg", width=700)
+            st.image("after_submit2.jpg", width=550)
         with st.spinner("正在生成报告并发送邮件..."):
             try:
                 scores = calculate_scores(st.session_state.responses)
