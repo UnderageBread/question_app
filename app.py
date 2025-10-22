@@ -45,7 +45,7 @@ st.markdown("""
         }
     }
     .stForm {
-        background-color: #E3F2FD;
+        background-color: transparent;
         padding: 2rem;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -83,14 +83,14 @@ st.markdown("""
         font-size: 16px !important;
     }
     div[data-testid="stVerticalBlock"] > div:has(> div.stRadio) {
-        background-color: white;
+        background-color: transparent;
         padding: 1rem;
         border-radius: 8px;
         margin-bottom: 1rem;
         box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
     div[data-testid="stVerticalBlock"] > div:has(> div.stRadio) {
-        background-color: white;
+        background-color: transparent;
         padding: 1rem;
         border-radius: 8px;
         margin-bottom: 1rem;
@@ -108,21 +108,21 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# DISPLAY_ORDER = {
-#     1: 15, 2: 3, 3: 28, 4: 7, 5: 34, 6: 11, 7: 19, 8: 41, 9: 25, 10: 6, 
-#     11: 38, 12: 14, 13: 22, 14: 31, 15: 9, 16: 42, 17: 4, 18: 26, 19: 13, 
-#     20: 37, 21: 1, 22: 29, 23: 18, 24: 8, 25: 35, 26: 20, 27: 5, 28: 39, 
-#     29: 12, 30: 24, 31: 16, 32: 33, 33: 2, 34: 27, 35: 10, 36: 40, 37: 21, 
-#     38: 32, 39: 17, 40: 30, 41: 23, 42: 36
-# }
-
 DISPLAY_ORDER = {
-    1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 
-    11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18, 19: 19, 
-    20: 20, 21: 21, 22: 22, 23: 23, 24: 24, 25: 25, 26: 26, 27: 27, 28: 28, 
-    29: 29, 30: 30, 31: 31, 32: 32, 33: 33, 34: 34, 35: 35, 36: 36, 37: 37, 
-    38: 38, 39: 39, 40: 40, 41: 41, 42: 42
+    1: 15, 2: 3, 3: 28, 4: 7, 5: 34, 6: 11, 7: 19, 8: 41, 9: 25, 10: 6, 
+    11: 38, 12: 14, 13: 22, 14: 31, 15: 9, 16: 42, 17: 4, 18: 26, 19: 13, 
+    20: 37, 21: 1, 22: 29, 23: 18, 24: 8, 25: 35, 26: 20, 27: 5, 28: 39, 
+    29: 12, 30: 24, 31: 16, 32: 33, 33: 2, 34: 27, 35: 10, 36: 40, 37: 21, 
+    38: 32, 39: 17, 40: 30, 41: 23, 42: 36
 }
+
+# DISPLAY_ORDER = {
+#     1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 
+#     11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18, 19: 19, 
+#     20: 20, 21: 21, 22: 22, 23: 23, 24: 24, 25: 25, 26: 26, 27: 27, 28: 28, 
+#     29: 29, 30: 30, 31: 31, 32: 32, 33: 33, 34: 34, 35: 35, 36: 36, 37: 37, 
+#     38: 38, 39: 39, 40: 40, 41: 41, 42: 42
+# }
 
 REVERSE_ORDER = {v: k for k, v in DISPLAY_ORDER.items()}
 
@@ -517,7 +517,8 @@ if 'submitted' not in st.session_state:
     st.session_state.submitted = False
 
 if not st.session_state.submitted:
-    st.title("学习提升潜力评测")
+    # st.title("学习提升潜力评测")
+    st.markdown("<h1 style='font-size: 28px; color: #1976D2;'>学习提升潜力评测</h1>", unsafe_allow_html=True)
     
     st.markdown("""
     ### 尊敬的家长：
@@ -651,10 +652,10 @@ if not st.session_state.submitted:
                 st.rerun()
 
 else:
-    if os.path.exists("after_submit.jpg"):
+    if os.path.exists("after_submit2.jpg"):
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
-            st.image("after_submit.jpg", width=700)
+            st.image("after_submit2.jpg", width=700)
         with st.spinner("正在生成报告并发送邮件..."):
             try:
                 scores = calculate_scores(st.session_state.responses)
@@ -705,7 +706,7 @@ else:
             except Exception as e:
                 st.error(f"处理失败: {str(e)}")
     else:
-        st.error("未找到 after_submit.jpg 文件")
+        st.error("未找到 after_submit2.jpg 文件")
     
     if st.button("重新填写", use_container_width=True):
         st.session_state.submitted = False
