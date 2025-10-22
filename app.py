@@ -539,7 +539,7 @@ if not st.session_state.submitted:
         child_name = st.text_input("孩子姓名（小名）：", value="小明" if DEFAULT else "")
         gender = st.selectbox("性别：", ["请选择", "男", "女"], index=1 if DEFAULT else 0)
         city = st.text_input("城市：", value="上海" if DEFAULT else "")
-        grade = st.selectbox("年级：", ["请选择", "幼儿园小班", "幼儿园中班", "幼儿园大班", "小学一年级", "小学二年级", "小学三年级", "小学四年级", "小学五年级", "小学六年级", "初中一年级", "初中二年级", "初中三年级", "高中一年级", "高中二年级", "高中三年级"], index=4 if DEFAULT else 0)
+        grade = st.selectbox("年级：", ["请选择", "小学一年级", "小学二年级", "小学三年级", "小学四年级", "小学五年级", "小学六年级", "初中一年级", "初中二年级", "初中三年级", "高中一年级", "高中二年级", "高中三年级"], index=4 if DEFAULT else 0)
         relationship = st.selectbox("您和孩子的关系是：", ["请选择", "父亲", "母亲", "爷爷", "奶奶", "外公", "外婆", "其他"], index=2 if DEFAULT else 0)
         phone = st.text_input("联系电话：", value="13800138000" if DEFAULT else "")
         
