@@ -172,13 +172,13 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
         
         if 0 <= value < 8:
             x_pos = bar.get_x() + bar.get_width()/2.
-            ax2.plot(x_pos, height + 1.2, marker='o', markersize=12, color='#E74C3C',
+            ax2.plot(x_pos, height + 2, marker='o', markersize=12, color='#E74C3C',
                     markeredgecolor='red', markeredgewidth=2, zorder=10)
-            ax2.text(x_pos, height + 1.2, '!', ha='center', va='center',
+            ax2.text(x_pos, height + 2, '!', ha='center', va='center',
                     fontsize=20, fontweight='bold', color='white', zorder=11)
         elif value >= 11:
             x_pos = bar.get_x() + bar.get_width()/2.
-            ax2.plot(x_pos, height + 1.2, marker='*', markersize=20, color='#F39C12',
+            ax2.plot(x_pos, height + 2, marker='*', markersize=20, color='#F39C12',
                     markeredgecolor='#F39C12', markeredgewidth=1, zorder=10)
     
     ax2.axhline(y=10, color='#95A5A6', linestyle='--', linewidth=2, alpha=0.5)
@@ -207,7 +207,7 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
         
         if count >= 6:
             x_pos = bar.get_x() + bar.get_width()/2.
-            ax5.plot(x_pos, height + 1.2, marker='*', markersize=22, color='#F39C12',
+            ax5.plot(x_pos, height + 2, marker='*', markersize=22, color='#F39C12',
                     markeredgecolor='#F39C12', markeredgewidth=1, zorder=10)
     
     ax5.set_ylim(0, 14)
