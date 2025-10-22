@@ -99,9 +99,9 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
                  fontsize=35, fontweight='bold', y=1.05, color='#2C3E50')
     
     fig.text(0.15, 1, f'学生姓名：{child_name}', 
-             ha='left', fontsize=12, color='#34495E')
+             ha='left', fontsize=20, color='#34495E')
     fig.text(0.85, 1, f'日期：{report_date}', 
-             ha='right', fontsize=12, color='#34495E')
+             ha='right', fontsize=20, color='#34495E')
     
     gs = GridSpec(7, 3, figure=fig, hspace=0.8, wspace=0.35,
                 left=0.08, right=0.95, top=0.94, bottom=0.08)
@@ -129,7 +129,7 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
         color = '#2C3E50'
         
         ax1.text(x, y-0.5, f'{value}', ha='center', va='center',
-                fontsize=10, fontweight='bold', color=color,
+                fontsize=14, fontweight='bold', color=color,
                 bbox=dict(boxstyle='round,pad=0.3', facecolor='white', 
                         edgecolor=color, alpha=0.8))
         
@@ -143,14 +143,14 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
                     markeredgecolor='#F39C12', markeredgewidth=1)
 
     ax1.set_xticks(angles)
-    ax1.set_xticklabels(dimensions, fontsize=11, fontweight='bold')
-    ax1.tick_params(axis='x', pad=30)  # 增加标签与轴的距离
+    ax1.set_xticklabels(dimensions, fontsize=18, fontweight='bold')
+    ax1.tick_params(axis='x', pad=20)
     ax1.set_ylim(0, 14)
     ax1.set_yticks([3, 6, 9, 12])
-    ax1.set_yticklabels(['3', '6', '9', '12'], fontsize=9)
+    ax1.set_yticklabels(['3', '6', '9', '12'], fontsize=12)
     ax1.set_rlabel_position(22.5)
-    ax1.set_title('基础学习能力现状分析', fontsize=18, fontweight='bold', 
-                pad=30, color='#2C3E50')
+    ax1.set_title('基础学习能力现状分析', fontsize=24, fontweight='bold', 
+                pad=50, color='#2C3E50')
     ax1.grid(True, linewidth=0.5, alpha=0.6)
     ax1.spines['polar'].set_linewidth(2)
     
@@ -168,7 +168,7 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
         
         ax2.text(bar.get_x() + bar.get_width()/2., height + 0.3,
                 f'{int(value)}',
-                ha='center', va='bottom', fontsize=13, fontweight='bold', color=color)
+                ha='center', va='bottom', fontsize=22, fontweight='bold', color=color)
         
         if 0 <= value < 8:
             x_pos = bar.get_x() + bar.get_width()/2.
@@ -183,13 +183,13 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
     
     ax2.axhline(y=10, color='#95A5A6', linestyle='--', linewidth=2, alpha=0.5)
     ax2.set_ylim(0, 14)
-    ax2.set_ylabel('得分', fontsize=13, fontweight='bold', color='#2C3E50')
-    ax2.set_title('学习能量通道分析', fontsize=18, 
+    ax2.set_ylabel('得分', fontsize=22, fontweight='bold', color='#2C3E50')
+    ax2.set_title('学习能量通道分析', fontsize=24, 
                   fontweight='bold', pad=20, color='#2C3E50')
     ax2.set_facecolor('#FAFAFA')
     ax2.spines['top'].set_visible(False)
     ax2.spines['right'].set_visible(False)
-    ax2.tick_params(labelsize=11)
+    ax2.tick_params(labelsize=22)
     
     ax5 = fig.add_subplot(gs[4:6, :])
     m3_channels = list(scores['module3'].keys())
@@ -203,7 +203,7 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
         height = bar.get_height()
         ax5.text(bar.get_x() + bar.get_width()/2., height + 0.3,
                 f'{int(count)}',
-                ha='center', va='bottom', fontsize=14, fontweight='bold', color='#2C3E50')
+                ha='center', va='bottom', fontsize=17, fontweight='bold', color='#2C3E50')
         
         if count >= 6:
             x_pos = bar.get_x() + bar.get_width()/2.
@@ -211,14 +211,14 @@ def create_dashboard(scores, child_name="测试学生", report_date=None,name=''
                     markeredgecolor='#F39C12', markeredgewidth=1, zorder=10)
     
     ax5.set_ylim(0, 14)
-    ax5.set_xlabel('学习通道类型', fontsize=13, fontweight='bold', color='#2C3E50')
-    ax5.set_title('三觉优势分析', fontsize=18, 
+    ax5.set_xlabel('学习通道类型', fontsize=22, fontweight='bold', color='#2C3E50')
+    ax5.set_title('三觉优势分析', fontsize=24, 
                   fontweight='bold', pad=20, color='#2C3E50')
     ax5.set_facecolor('#FAFAFA')
     ax5.spines['top'].set_visible(False)
     ax5.spines['right'].set_visible(False)
-    ax5.tick_params(labelsize=11)
-    ax5.set_ylabel('得分', fontsize=13, fontweight='bold', color='#2C3E50')
+    ax5.tick_params(labelsize=22)
+    ax5.set_ylabel('得分', fontsize=22, fontweight='bold', color='#2C3E50')
 
     try:
         qr_img = mpimg.imread('qr_code.jpg')
